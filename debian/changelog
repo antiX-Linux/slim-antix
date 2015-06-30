@@ -1,0 +1,354 @@
+slim (1.3.6.9) unstable; urgency=low
+ 
+  * Fixed bug relating to no # for the line Focus the password field on start in /etc/slim.conf
+
+ -- anticapitalista <antiX@operamail.com>  Wed, 24 Jun 2015 20:19:00 +0200
+
+
+slim (1.3.6.8) unstable; urgency=low
+ 
+  * Added games to slim.conf path
+
+ -- anticapitalista <antiX@operamail.com>  Fri, 27 Feb 2015 00:01:00 +0200
+
+
+slim (1.3.6.7) unstable; urgency=low
+ 
+  * Replaced wmii with herbstluftwm
+
+ -- anticapitalista <antiX@operamail.com>  Fri, 19 Dec 2014 19:12:00 +0200
+
+
+slim (1.3.6.6) unstable; urgency=low
+ 
+  * New default desktop-session boot for antiX-14.
+
+ -- anticapitalista <antiX@operamail.com>  Thu, 26 Jun 2014 22:50:00 +0200
+
+
+slim (1.3.6.5.10) unstable; urgency=low
+ 
+  * Removed dwm from slim.conf and slim.template files.
+
+ -- anticapitalista <antiX@operamail.com>  Wed, 30 Oct 2013 18:10:00 +0200
+
+
+slim (1.3.6.5.9) unstable; urgency=low
+ 
+  * Packaged using dpkg-buildpackage.
+  * xz compressed deb.
+
+ -- anticapitalista <antiX@operamail.com>  Sat, 19 Oct 2013 13:05:00 +0200
+
+
+slim (1.3.6.5.8) unstable; urgency=low
+ 
+  * Added make-initrc --slim to postinstall script..
+
+ -- anticapitalista <antiX@operamail.com>  Sat, 15 June 2013 15:05:00 +0200
+
+
+slim (1.3.6.5.7) unstable; urgency=low
+ 
+  * Change ownership to root;root.
+
+ -- anticapitalista <antiX@operamail.com>  Thu, 06 June 2013 10:05:00 +0200
+
+
+slim (1.3.6.5.6) unstable; urgency=low
+ 
+  * Edits to slim.conf files for new desktop-upgrade script..
+
+ -- anticapitalista <antiX@operamail.com>  Mon, 27 May 2013 12:55:00 +0200
+
+
+slim (1.3.6.5.5) unstable; urgency=low
+ 
+  * Use persist-config in slim.conf to halt/reboot..
+
+ -- anticapitalista <antiX@operamail.com>  Thu, 23 May 2013 01:45:00 +0200
+
+
+slim (1.3.6.5.4) unstable; urgency=low
+ 
+  * Use persist-config in slim.conf to halt/reboot..
+
+ -- anticapitalista <antiX@operamail.com>  Mon, 15 Apr 2012 19:00:00 +0200
+
+
+slim (1.3.6.5.3) unstable; urgency=low
+ 
+  * /etc/slim.conf - do not set default user as demo.
+
+ -- anticapitalista <antiX@operamail.com>  Fri, 12 Apr 2012 20:00:00 +0200
+
+
+slim (1.3.6.5.2) unstable; urgency=low
+ 
+  * Removed dbus line in /etc/slim.conf for login.
+
+ -- anticapitalista <antiX@operamail.com>  Wed, 10 Apr 2012 00:50:00 +0200
+
+
+slim (1.3.6.5.1) unstable; urgency=low
+ 
+  * Startup set to levels 2 and 5.
+
+ -- anticapitalista <antiX@operamail.com>  Wed, 31 October 2012 13:40:00 +0200
+
+
+slim (1.3.6.5) unstable; urgency=low
+ 
+  * Fixed set slim background bug.
+
+ -- anticapitalista <antiX@operamail.com>  Sun, 23 Sept 2012 00:10:00 +0200
+
+
+slim (1.3.6.4) unstable; urgency=low
+ 
+  * Fixed ownership bug.
+
+ -- anticapitalista <antiX@operamail.com>  Sun, 26 August 2012 15:40:00 +0200
+
+
+slim (1.3.6.3) unstable; urgency=low
+
+  * Edits to slim.conf
+  * localisation es.
+
+-- anticapitalista <antiX@operamail.com> Sun, 15 July 2012 01:40:00 +0200
+
+
+slim (1.3.6.2) unstable; urgency=low
+
+  * Adjustments of /bin/bash.
+  * Edits to slim.conf
+
+-- anticapitalista <antiX@operamail.com> Tues, 08 May 2012 13:40:00 +0200
+
+
+slim (1.3.6.1) unstable; urgency=low
+
+  * Edited slim theme to work with 800x600 resolution.
+
+-- anticapitalista <antiX@operamail.com> Tues, 08 May 2012 13:40:00 +0200
+
+
+slim (1.3.6) unstable; urgency=low
+
+  * Changed init run level to only init 2 and 5.
+
+-- anticapitalista <antiX@operamail.com> Tues, 01 May 2012 17:40:00 +0200
+
+
+slim (1.3.5.1) unstable; urgency=low
+
+  * Added localisation.
+
+-- anticapitalista <antiX@operamail.com> Wed, 25 April 2012 18:40:00 +0200
+
+
+slim (1.3.5) unstable; urgency=low
+
+  * Minor edits to manage-slim-antix.
+
+-- anticapitalista <antiX@operamail.com> Mon, 16 April 2012 11:40:00 +0200
+
+
+slim (1.3.4) unstable; urgency=low
+
+  * Incorporated manage-slim-antix.
+
+-- anticapitalista <antiX@operamail.com> Mon, 02 April 2012 17:40:00 +0200
+
+
+slim (1.3.3.1) unstable; urgency=low
+
+  * Added antixccslim.sh to change slim background
+
+-- anticapitalista <antiX@operamail.com> Wed, 23 March 2012 17:50:00 +0200
+
+
+slim (1.3.3) unstable; urgency=low
+
+  * New antiX theme
+
+-- anticapitalista <antiX@operamail.com> Wed, 21 March 2012 21:53:36 +0200
+
+slim (1.3.2-1) unstable; urgency=low
+
+  * New upstream release. (Closes: #633583, #605214)
+  * Update debian/control.
+    - Bump up Standards-Version to 3.9.2.
+    - Change Build-Depends from libjpeg62-dev to libjpeg-dev. (Closes: #644805)
+    - Change Build-Depends from libpng12-dev to libpng-dev.
+  * Fefresh patches.
+    - Drop patches/ftbfs_gcc_4.4.patch. Applied to upstream.
+    - Drop patches/xauth_secret_support.patch. Applied to upstream.
+    - Drop patches/insecure_PATH_assignment.patch. Applied to upstream.
+    - Drop patches/fix-manpage.patch. Applied to upstream.
+    - Update patches/Makefile.patch and debian/patches/slim-conf.patch.
+    - Add patches/fix_ftbfs_as-needed.patch.
+      Fix build failure with ld --as-needed. (Closes: #607185)
+  * Update debian/rules.
+    - Fix lintian debian-rules-missing-recommended-target build-{arch,indep}.
+  * Update debian/README.Debian.
+    - Fix lintian spelling-error-in-readme-debian.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 06 Feb 2012 00:53:36 +0900
+
+slim (1.3.1-8) unstable; urgency=low
+
+  * New theme.
+    - Add new theme debian-spacefun and set it as default (Closes: #603256).
+	  Thanks to Yves-Alexis Perez.
+    - Update patches/slim-conf.patch.
+    - Add remove function of debian/debian-spacefun to debian/rules.
+    - Add debian-spacefun to debian/slim.install.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Sun, 14 Nov 2010 07:40:05 +0900
+
+slim (1.3.1-7) unstable; urgency=high
+
+  * Update debian/control.
+    - Bump up Standards-Version to 3.9.1.
+  * Fix show black screen on On kfreebsd (Closes: #586593).
+    debian/patches/fix-black-screen.patch
+  * Fix CVE-2010-2945: insecure PATH assignment (Closes: #594414).
+    debian/patches/insecure_PATH_assignment.patch
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Thu, 26 Aug 2010 12:40:13 +0900
+
+slim (1.3.1-6) unstable; urgency=low
+
+  * Update debian/control.
+    - Bump up Standards-Version.
+  * Fix default path (Closes: #581775).
+    Thanks to Andrei Popescu.
+  * Debconf translation:
+    - Update Danish translation (Closes: #587800).
+      Thanks to Joe Dalton.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Thu, 08 Jul 2010 05:41:40 +0900
+
+slim (1.3.1-5) unstable; urgency=low
+
+  * Update debian/control.
+    - Bump up Standards-Version.
+  * Update patches/slim-conf.patch
+    - scrot default location to /root. (Closes: #537604)
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Tue, 09 Feb 2010 22:58:12 +0900
+
+slim (1.3.1-4) unstable; urgency=low
+
+  * Fix FTBFS with GCC 4.4. (Closes: #553703)
+    Update patches/ftbfs_gcc_4.4.patch
+  * Update 20slim_locale. (Closes: #536541) 
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 07 Dec 2009 23:15:33 +0900
+
+slim (1.3.1-3) unstable; urgency=low
+
+  * Remove x-terminal-emulator from Recommends and change from
+    x-terminal-emulator to xterm in slim.conf file (Closes: #536542)
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Sat, 17 Oct 2009 08:03:36 +0900
+
+slim (1.3.1-2) unstable; urgency=low
+
+  * Add Jens Peter Secher to Uploaders list.
+  * Update es.po (Closes: #510469)
+  * Fix FTBFS with GCC 4.4. (Closes: #505332)
+  * Fix insecure xauth secret. (Closes: #529306)
+  * Fix allows login as root without password. (Closes: #536542)
+     - Wrote explanation about this problem to README.Debian.
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Mon, 21 Sep 2009 15:52:33 +0900
+
+slim (1.3.1-1) unstable; urgency=low
+
+  * New Maintainer (Nobuhiro Iwamatsu).
+  * New upstream release.
+  * Update Standards-Version.
+  * Update patch. 
+    Makefile.patch slim-conf.patch 
+  * Remove patch.
+    ftbfs-gcc4.3-cfg.cpp.patch
+
+ -- Nobuhiro Iwamatsu <iwamatsu@debian.org>  Sun, 23 Aug 2009 13:42:54 +0900
+
+slim (1.3.0-2) unstable; urgency=low
+
+  * Minor changes:
+    - Move from dpatch to quilt.
+    - Export every possible locale env-var (updated
+      local/Xsession.d/20slim_locale). Closes: #441630
+      Note: Test and validate the patch that uses pam instead (#476248).
+    - Modifications to patches/slim-conf.patch:
+      - Replace X11R6/bin with bin/X11. Closes: #469401
+      - Add "default" to the start of the list of sessions. Closes: #476245
+      - Set default X server option -nolisten tcp. Closes: #478671
+      - Don't include the current path "." inside $PATH. Closes: #484773
+      - Switch from xterm to x-terminal-emulator. Closes: #499048
+        Note: now we recommend xterm at least.
+    - Add patches/fix-manpage.patch, lintian spewed an error on slim.1.
+    - Update clean rule to remove the .pc directory
+  * New theme:
+    - Add new theme debian-moreblue-orbit and set it as default. Closes: #495029
+  * Update translations:
+    - Portuguese. Closes: #497587
+    - Turkish. Closes: #499557
+
+ -- Mike Massonnet <mmassonnet@gmail.com>  Sun, 21 Sep 2008 16:15:15 +0200
+
+slim (1.3.0-1) unstable; urgency=low
+
+  [ Mike Massonnet <mmassonnet@gmail.com> ]
+
+  * Package new upstream version 1.3.0. Closes: #447913
+    - Build against libpam (add build dependency libpam0g-dev).
+    - DPatch cfg.cpp to include <stdlib.h> and fix FTBFS with GCC-4.3.
+      Closes: #455138
+    - Add /etc/X11/Xsession.d/20slim_locale to export the LANG.
+      Closes: #440862
+    - Replace xfce4-session with startxfce4 and add ion3. Closes: #426466
+    - Don't set the DPI. Closes: #428407
+  * The code concerning the environment init has drastically changed in this
+    new version, and Steve Kemp did a security audit over it. Closes: #435841
+  * Debconf translation:
+    - New Finnish translation. Closes: #457447
+    - Update Portuguese translation. Closes: #445495
+  * Minor changes:
+    - Suggest scrot as default screenshoter
+    - Refined the description
+    - Set the Homepage field
+    - Bump standards version to 3.7.3
+    - Patch Makefile (LDFLAGS) to remove unnecessary links
+
+  [ Christian Perrier <bubulle@debian.org> ]
+
+  * Debconf templates and debian/control reviewed by the debian-l10n-
+    english team as part of the Smith review project. Closes: #426233, #423279
+  * Debconf translation updates:
+    - German and all others taken from xdm. Closes: #426532, #424677
+    - Romanian. Closes: #428955
+    - Vietnamese. Closes: #427145
+
+ -- Mike Massonnet <mmassonnet@gmail.com>  Wed, 24 Oct 2007 22:44:07 +0200
+
+slim (1.2.6-1) unstable; urgency=low
+
+  * Initial release (Closes: #337578)
+  * Add default Debian theme.
+  * Add openbox to the sessions.
+  * Patched app.cpp to avoid a segfault (Darren Salt).
+  * Patched Makefile to set MANDIR to /usr/share/man instead of /usr/man.
+  * Use the Xsession script as default login script.  This changes the
+    behavior of slim where it now uses ~/.xsession instead of ~/.xinitrc.
+  * Adapted scripts from xdm to allow slim to be chosen as the default display
+    manager (Darren Salt).
+
+
+ -- Mike Massonnet <mmassonnet@gmail.com>  Thu,  5 Apr 2007 11:18:33 +0200
+

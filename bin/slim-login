@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# by Kendall Weaver <kendalltweaver@gmail.com>
+#
+# Simple autologin tool for SLiM...finally.
+# 02 March 2010 minor adaptions for antiX by anticapitalista <antiX@operamail.com>
+
+TEXTDOMAINDIR=/usr/share/locale
+TEXTDOMAIN=slim-login
+
+username=$(yad --entry --title "SLiM Autologin" --text $"Enter username for auto-login."); echo $username
+
+cp -p --force /etc/slim.conf /usr/share/slim/slim.backup
+
+difference=`diff /etc/slim.conf /usr/share/slim/slim.backup`
+
+	if [ "$difference" = "" ]
+	then
+		cp -p --force /usr/share/slim/slim.template /etc/slim.conf
+		echo "default_user        $username" >> /etc/slim.conf
+		echo "auto_login          yes" >> /etc/slim.conf
+		echo "lockfile            /var/run/slim.lock" >> /etc/slim.conf
+		echo "logfile             /var/log/slim.log" >> /etc/slim.conf
+		echo $"Default slim.conf replaced."
+	else
+		echo $"Error in making backup!"
+	fi
+
+exit 0
