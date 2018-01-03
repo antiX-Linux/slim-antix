@@ -1,0 +1,5 @@
+etc
+etc/pam.d
+etc/init.d
+etc/logrotate.d
+etc/X11/Xsession.d

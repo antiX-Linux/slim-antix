@@ -1,9 +1,0 @@
-locale/*	               /usr/share/locale
-themes/*                       /usr/share/slim/themes 
-slim.template                  /usr/share/slim
-changelog.gz                   /usr/share/doc/slim 
-copyright                      /usr/share/doc/slim 
-bin/*                          /usr/local/bin
-etc/*                          /etc 
-slim_login.desktop             /usr/share/applications/antix 
-slim_wallpaper.desktop         /usr/share/applications/antix  

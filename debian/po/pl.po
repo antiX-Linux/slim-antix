@@ -1,0 +1,83 @@
+# debconf templates for xorg-x11 package
+# Polish translation
+#
+# $Id: pl.po 1042 2006-01-09 07:55:08Z ender $
+#
+# Copyrights: Branden Robinson, 2000-2004.
+#
+# This file is distributed under the same license as the xorg-x11 package.
+# Please see debian/copyright.
+#
+#    Translators, if you are not familiar with the PO format, gettext
+#    documentation is worth reading, especially sections dedicated to
+#    this format, e.g. by running:
+#         info -n '(gettext)PO Files'
+#         info -n '(gettext)Header Entry'
+#
+#    Some information specific to po-debconf are available at
+#            /usr/share/doc/po-debconf/README-trans
+#         or http://www.debian.org/intl/l10n/po-debconf/README-trans
+#
+#    Developers do not need to manually edit POT or PO files.
+#
+# Marcin Owsiany, 2001, 2002.
+# Michał Kułach <michal.kulach@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: slim\n"
+"Report-Msgid-Bugs-To: mmassonnet@gmail.com\n"
+"POT-Creation-Date: 2007-05-31 08:04+0200\n"
+"PO-Revision-Date: 2012-02-25 15:58+0100\n"
+"Last-Translator: Michał Kułach <michal.kulach@gmail.com>\n"
+"Language-Team: Polish <debian-l10n-polish@lists.debian.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#. Type: select
+#. Description
+#: ../slim.templates:2001
+msgid "Default display manager:"
+msgstr "Domyślny menedżer logowania:"
+
+#. Type: select
+#. Description
+#: ../slim.templates:2001
+msgid ""
+"A display manager is a program that provides graphical login capabilities "
+"for the X Window System."
+msgstr ""
+"Menedżer logowania to program, który umożliwia graficzne logowanie do X "
+"Window System."
+
+#. Type: select
+#. Description
+#: ../slim.templates:2001
+msgid ""
+"Only one display manager can manage a given X server, but multiple display "
+"manager packages are installed. Please select which display manager should "
+"run by default."
+msgstr ""
+"Tylko jeden menedżer logowania może kontrolować dany serwer X, ale "
+"zainstalowanych jest obecnie kilka takich programów. Proszę wybrać, który z "
+"nich ma być uruchamiany domyślnie."
+
+#. Type: select
+#. Description
+#: ../slim.templates:2001
+msgid ""
+"Multiple display managers can run simultaneously if they are configured to "
+"manage different servers; to achieve this, configure the display managers "
+"accordingly, edit each of their init scripts in /etc/init.d, and disable the "
+"check for a default display manager."
+msgstr ""
+"Można uruchomić kilka menedżerów logowania, ale muszą one kontrolować różne "
+"serwery; można to osiągnąć konfigurując odpowiednio każdy z nich, edytując "
+"ich skrypty startowe w /etc/init.d i wyłączając sprawdzanie domyślnego "
+"menedżera logowania."
+
+

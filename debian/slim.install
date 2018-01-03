@@ -1,0 +1,12 @@
+#antiX
+debian/antiX usr/share/slim/themes/
+
+debian/local/Xsession.d/20slim_locale etc/X11/Xsession.d
+debian/local/bin/antixccslim.sh usr/local/bin
+debian/local/bin/slim-login usr/local/bin
+debian/local/Xsession.d/slim_login.desktop usr/share/applications/antix 
+debian/local/Xsession.d/slim_wallpaper.desktop usr/share/applications/antix 
+debian/local/Xsession.d/slim.template usr/share/slim
+
+# pam
+#pam.sample etc/pam.d/slim

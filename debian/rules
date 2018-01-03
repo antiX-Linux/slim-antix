@@ -1,34 +1,30 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
 
-build:
+CMAKE_FLAGS = -DUSE_PAM=yes -DUSE_CONSOLEKIT=yes
 
-build-arch:
+%:
+	dh $@ --buildsystem=cmake
 
-build-indep:
+override_dh_auto_configure:
+	dh_auto_configure -- $(CMAKE_FLAGS)
 
-clean:
-	dh_testdir
-	dh_testroot
-	dh_clean
+override_dh_installinit:
+	dh_installinit --noscripts
+#dh_installinit --no-restart-on-upgrade --no-start \
+#		--update-rcd-params="start 99 2 3 4 5 . stop 1 0 1 6 ."
 
-install:
-	dh_install slim /usr/bin
-	dh_testdir
-	dh_testroot
+override_dh_installpam:
+	dh_installpam --name=slim
 
-binary-arch:
+override_dh_install:
+	dh_install --list-missing
 
-binary-indep: install
-	dh_testdir
-	dh_testroot
-	#dh_installchangelogs
-	dh_installdocs
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb -- -Z xz
+	# pam
+	#install -D -m 0644  pam.sample \
+		#$(CURDIR)/debian/slim/etc/pam.d/slim
+	# remove COPYRIGHT files.
+	rm -rf \
+		debian/slim/usr/share/slim/themes/default
 
-binary: binary-indep binary-arch
-
-.PHONY: clean install binary-arch binary-indep binary
+override_dh_usrlocal:

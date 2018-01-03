@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Name=slim wallpaper
-Exec=gksu antixccslim.sh
-Icon=/usr/share/icons/gTangish-2.0a1/48x48/apps/wallpaper.png
-Terminal=false
-Type=Application
-Categories=Settings;
-NoDisplay=True

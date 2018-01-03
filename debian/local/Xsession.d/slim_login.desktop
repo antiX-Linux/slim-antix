@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=slim login
+Exec=gksu slim-login
+Icon=/usr/share/icons//Faenza-Cupertino-mini/apps/48/keyring-manager.png
+Terminal=false
+Type=Application
+Categories=Settings;
+NoDisplay=True
