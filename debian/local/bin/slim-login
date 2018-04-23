@@ -1,29 +1,181 @@
-#!/bin/bash
-#
-# by Kendall Weaver <kendalltweaver@gmail.com>
-#
-# Simple autologin tool for SLiM...finally.
-# 02 March 2010 minor adaptions for antiX by anticapitalista <antiX@operamail.com>
+#!/usr/bin/env python
+#Name: slim-login
+#Version: 2.0
+#Depends: python, Gtk, xset
+#Author: Dave (david@daveserver.info)
+#Purpose: Configure SLiM autologin.
+#License: gplv2
 
-TEXTDOMAINDIR=/usr/share/locale
-TEXTDOMAIN=slim-login
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk, Gdk, GLib
+import os 
+import re
+import gettext
+import sys
+gettext.install("slim-login", "/usr/share/locale")
+class Error:
+    def __init__(self, parent, error):
+        dlg = Gtk.MessageDialog(parent, 0, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, "Error")
+        dlg.format_secondary_text(error)
+        dlg.run()
+        dlg.destroy()
+       
+class Success:
+    def __init__(self, parent, success):
+         dlg = Gtk.MessageDialog(parent, 0, Gtk.MessageType.INFO, Gtk.ButtonsType.OK, "Success")
+         dlg.format_secondary_text(success)
+         dlg.run()
+         dlg.destroy()
 
-username=$(yad --entry --title "SLiM Autologin" --text $"Enter username for auto-login."); echo $username
+class Var: 
+    def read(self):          
+        var = Var   
+        var.CONF_SYSTEM_FILE = "/etc/slim.conf"
+        for line in open(var.CONF_SYSTEM_FILE, "r").xreadlines():
+            if re.search(r'auto_login', line):
+                if line.strip().startswith("#"):
+                    var.status=0
+                else:
+                    var.status=1
+                    
+    def writelogin(self, status):
+        if status == 1:
+            self.text.write ("auto_login yes\n") 
+        else:
+            self.text.write ("#auto_login yes\n") 
+        
+    def writeuser(self,status,username):
+        if status == 1:
+            self.text.write ("default_user "+str(username)+"\n")
+        else:
+            self.text.write ("#default_user "+str(username)+"\n" )
+                
+    def write(self, status, username):
+        WRITE_FILE = Var.CONF_SYSTEM_FILE+".tmp"
+        READ_FILE = Var.CONF_SYSTEM_FILE
+        text = file((WRITE_FILE), "w");text.write("");text.close()
+        
+        fauto_login=0
+        fdefault_user=0
+        self.text = file((WRITE_FILE), "a")
+        for line in open(READ_FILE, "r").xreadlines():
+            if re.search(r'auto_login', line):
+                fauto_login=1
+                self.writelogin(status)
+                
+            elif re.search(r'default_user', line):
+                fdefault_user=1
+                self.writeuser(status,username)
+            else:
+                self.text.write (line) 
+            
+        if fauto_login != 1:
+            self.writelogin(status)
+                        
+        if fdefault_user != 1:    
+            self.writeuser(status,username)
+                
+        self.text.close()        
+        os.system("mv %s %s" % ((WRITE_FILE), (READ_FILE)))
 
-cp -p --force /etc/slim.conf /usr/share/slim/slim.backup
+class mainWindow(Gtk.Window):
 
-difference=`diff /etc/slim.conf /usr/share/slim/slim.backup`
+    def apply(self,widget,option):
+        if option == 0: #apply button
+            if self.switch.get_active() == True:
+                tree_iter = self.username.get_active_iter()
+                model = self.username.get_model()
+                row_id, name = model[tree_iter][:2]
+                try:
+                    Var().write(1,name)
+                except:
+                    Error(self, _("Could not turn on AutoLogin for: "+str(name)+"\n Please edit /etc/slim.conf manually"))
+                    self.switch.set_active(False)
+                else:
+                    Success(self, _("AutoLogin set for: "+str(name)+"\n"))
+            else:
+                try:
+                    Var().write(0,'')
+                except:
+                    Error(self, _("Could not turn off AutoLogin\n Please edit /etc/slim.conf manually"))
+                    self.switch.set_active(True)
+                else:
+                    Success(self, _("AutoLogin set to off\n"))
+    
+    def toggle_sensitive(self, option):
+        if option == 0 :
+            self.username.set_sensitive(False)
+        else:
+            self.username.set_sensitive(True)
 
-	if [ "$difference" = "" ]
-	then
-		cp -p --force /usr/share/slim/slim.template /etc/slim.conf
-		echo "default_user        $username" >> /etc/slim.conf
-		echo "auto_login          yes" >> /etc/slim.conf
-		echo "lockfile            /var/run/slim.lock" >> /etc/slim.conf
-		echo "logfile             /var/log/slim.log" >> /etc/slim.conf
-		echo $"Default slim.conf replaced."
-	else
-		echo $"Error in making backup!"
-	fi
+    def toggle_autologin(self, widget, object):
+        if self.switch.get_active() == True:
+            self.toggle_sensitive(1)
+        else:
+            self.toggle_sensitive(0)
 
-exit 0
+    def __init__(self):
+        Gtk.Window.__init__(self)
+        self.set_size_request(300,0)
+        self.set_border_width(10)
+        
+        mainframe = Gtk.Frame(label=_("SLiM Autologin"))
+        self.add(mainframe)
+        self.grid = Gtk.Grid(column_spacing=5,row_spacing=15)
+        mainframe.add(self.grid)
+        
+        self.switch_label = Gtk.Label()
+        self.switch_label.set_text(_("  Enable SLiM Autologin  "))
+        self.grid.attach(self.switch_label, 1, 1, 1, 1)
+        
+        self.switch = Gtk.Switch()
+        self.grid.attach(self.switch, 2, 1, 1, 1)
+        
+        self.username_label = Gtk.Label()
+        self.username_label.set_text(_("  AutoLogin User  "))
+        self.grid.attach(self.username_label, 1, 2, 1, 1)
+        
+        store = Gtk.ListStore(int,str)
+        loop = 0
+        for line in open('/etc/passwd', "r").xreadlines():
+            if re.search(r'10[0-9][0-9]', line):
+                pieces = line.split(':')
+                store.append([loop, pieces[0]])
+                loop+=1
+        
+        self.username =  Gtk.ComboBox.new_with_model_and_entry(store)
+        self.username.set_entry_text_column(1)
+        self.username.set_active(0)
+        self.grid.attach(self.username, 2, 2, 1, 1)
+        
+        #BUTTON BOX
+        buttonbox = Gtk.HButtonBox()
+        buttonbox.set_border_width(10)
+        self.grid.attach(buttonbox, 2, 3, 1,1)
+        
+        self.aply = Gtk.Button(stock=Gtk.STOCK_APPLY)
+        self.aply.connect("clicked", self.apply, 0)
+        buttonbox.pack_start(self.aply, True, True, 0)
+        
+        close = Gtk.Button(stock=Gtk.STOCK_CLOSE)
+        close.connect("clicked", lambda w: Gtk.main_quit())
+        buttonbox.add(close)
+        
+        if Var.status == 0 :
+            self.switch.set_active(False)
+            self.toggle_sensitive(0)
+        else:
+            self.switch.set_active(True)
+            self.toggle_sensitive(1)
+        
+        self.switch.connect("notify::active", self.toggle_autologin)
+        
+ROOTCHECK=os.getuid()
+if ( ROOTCHECK != 0 ):
+    sys.exit(_("You MUST be root to use this application!"))
+Var().read()
+win = mainWindow()
+win.connect("delete-event", Gtk.main_quit)
+win.show_all()
+Gtk.main()
